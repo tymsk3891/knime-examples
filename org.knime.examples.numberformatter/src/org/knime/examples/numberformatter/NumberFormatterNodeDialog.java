@@ -5,57 +5,49 @@ import org.knime.core.node.defaultnodesettings.DialogComponentString;
 import org.knime.core.node.defaultnodesettings.SettingsModelString;
 
 /**
- * This is an example implementation of the node dialog of the
- * "NumberFormatterNode".
+ * 「NumberFormatterNode」のノードダイアログのサンプル実装例です。
  *
- * This node dialog derives from {@link DefaultNodeSettingsPane} which allows
- * creation of a simple dialog with standard components. If you need a more
- * complex dialog please derive directly from
- * {@link org.knime.core.node.NodeDialogPane}. In general, one can create an
- * arbitrary complex dialog using Java Swing.
+ * このノードダイアログは標準的なコンポーネントでシンプルなダイアログの作成を可能にする
+ *  {@link DefaultNodeSettingsPane} から派生しています。
+ *  一般的に誰でも Java Swing を使って任意のダイアログを作成できます。
  * 
  * @author KNIME GmbH, Konstanz, Germany
  */
 public class NumberFormatterNodeDialog extends DefaultNodeSettingsPane {
 
 	/**
-	 * New dialog pane for configuring NumberFormatterNode. The dialog created here
-	 * will show up when double clicking on a node in KNIME Analytics Platform.
+	 * NumberFormatterNode を構成するための新しい dialog pane です。ここで作成されたダイアログは
+	 * KNIME Analytics Platform でノードをダブルクリックした時に表示されます。
 	 */
 	protected NumberFormatterNodeDialog() {
 		super();
 		/*
-		 * The DefaultNodeSettingsPane provides methods to add simple standard
-		 * components to the dialog pane via the addDialogComponent(...) method. This
-		 * method expects a new DialogComponet object that should be added to the dialog
-		 * pane. There are many already predefined components for the most commonly used
-		 * configuration needs like a text box (DialogComponentString) to enter some
-		 * String or a number spinner (DialogComponentNumber) to enter some number in a
-		 * specific range and step size.
+		 * DefaultNodeSettingsPane は addDialogComponent(...) メソッドを経由して dialog pane に
+		 * シンプルな標準コンポーネントを追加するためのメソッドを提供します。このメソッドは dialog pane
+		 * に追加する新しい DialogComponet object を要求します。テキストボックス（DialogComponentString）
+		 * や数値スピナー（DialogComponentNumber）などの一般によく使われる定義済みのコンポーネントが
+		 * 多数存在します。
 		 * 
-		 * The dialog components are connected to the node model via settings model
-		 * objects that can easily load and save their settings to the node settings.
-		 * Depending on the type of input the dialog component should receive, the
-		 * constructor of the component requires a suitable settings model object. E.g.
-		 * the DialogComponentString requires a SettingsModelString. Additionally,
-		 * dialog components sometimes allow to further configure the behavior of the
-		 * component in the constructor. E.g. to disallow empty inputs (like below).
-		 * Here, the loading/saving in the dialog is already taken care of by the
-		 * DefaultNodeSettingsPane. It is important to use the same key for the settings
-		 * model here as used in the node model implementation (it does not need to be
-		 * the same object). One best practice is to use package private static methods
-		 * to create the settings model as we did in the node model implementation (see
-		 * createNumberFormatSettingsModel() in NumberFormatterNodeModel class).
 		 * 
-		 * Here we create a simple String DialogComponent that will display a label
-		 * String besides a text box in which the use can enter a value. The
-		 * DialogComponentString has additional options to disallow empty inputs, hence
-		 * we do not need to worry about that in the model implementation anymore.
+		 * ダイアログコンポーネントはノード設定に設定をロードしたりセーブしたりできる
+		 * settings model オブジェクトを経由して接続されます。
+		 * ダイアログコンポーネントが受け取るべき入力のタイプに応じて、コンポーネントのコンストラクター
+		 * は適した setting model object を必要とします。その上、ダイアログコンポーネントでは、
+		 * コンストラクタでコンポーネントの動作を追加で設定できる場合があります。
+		 * 例えば、空の入力を許容しないための設定です。（下記を参照）
+		 * ここで、ダイアログにおけるロード/セーブは DefaultNodeSettingsPane によって既に処理されています。
+		 * settings model に node model 実装時に使用したのと同じキーを使用するのが重要です。（同じオブジェクトである必要はありません。）
+		 * node model 実装でやったように、settings model を作成するために package private static メソッド
+		 * を使うと良いでしょう。（NumberFormatterNodeModel クラスの createNumberFormatSettingsModel() を参照してください。）
 		 * 
+		 * ここで、テキストボックスに入力可能な値のラベル文字列を表示するシンプルな String DialogComponent を作成します。
+		 * DialogComponentString は空の入力を許可しない追加オプションを有します。
+		 * このため、model 実装中に何も心配する必要はありません。
 		 */
-		// First, create a new settings model using the create method from the node model.
+		
+		// 最初に、node model から create メソッドを使って新しい settings model を作成します。
 		SettingsModelString stringSettings = NumberFormatterNodeModel.createNumberFormatSettingsModel();
-		// Add a new String component to the dialog.
+		// ダイアログに新しい String コンポーネントを追加します。
 		addDialogComponent(new DialogComponentString(stringSettings, "Number Format", true, 10));
 	}
 }

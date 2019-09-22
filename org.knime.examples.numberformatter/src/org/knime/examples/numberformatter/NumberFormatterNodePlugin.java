@@ -8,12 +8,11 @@ import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
 
 /**
- * This is an example eclipse bundle activator.
+ * eclipse bundle activator のサンプルです。
  * 
- * Node developers probably won't have to do anything in here, as this class is
- * only needed by the eclipse platform/plugin mechanism. If you want to
- * move/rename this file, make sure to change the plugin.xml file in the project
- * root directory accordingly.
+ * このクラスは eclipse/plungin メカニズムによって必要なだけなので、ノード開発者はここでは何もしなくて良いはずです。
+ * このファイルを移動やリネームするならば、それに応じてプロジェクトの root ディレクトリにある plugin.xml を必ず変更してください。
+ * 
  *
  * @author KNIME GmbH, Konstanz, Germany
  */
@@ -22,7 +21,7 @@ public class NumberFormatterNodePlugin extends Plugin {
 	private static NumberFormatterNodePlugin plugin;
 
 	/**
-	 * The constructor.
+	 * コンストラクター
 	 */
 	public NumberFormatterNodePlugin() {
 		super();
@@ -30,12 +29,12 @@ public class NumberFormatterNodePlugin extends Plugin {
 	}
 
 	/**
-	 * This method is called upon plug-in activation.
+	 * このメソッドは、プラグインのアクティブ化時に呼び出されます。
 	 * 
 	 * @param context
-	 *            The OSGI bundle context
+	 *            OSGI バンドルコンテキスト
 	 * @throws Exception
-	 *             If this plugin could not be started
+	 *             このプラグインがスタートできなかった場合
 	 */
 	@Override
 	public void start(final BundleContext context) throws Exception {
@@ -44,12 +43,12 @@ public class NumberFormatterNodePlugin extends Plugin {
 	}
 
 	/**
-	 * This method is called when the plug-in is stopped.
+	 * このメソッドはプラグインが停止された時に呼び出される。
 	 * 
 	 * @param context
-	 *            The OSGI bundle context
+	 *            The OSGI バンドルコンテキスト
 	 * @throws Exception
-	 *             If this plugin could not be stopped
+	 *             プラグインが停止しなかった場合
 	 */
 	@Override
 	public void stop(final BundleContext context) throws Exception {
@@ -58,9 +57,9 @@ public class NumberFormatterNodePlugin extends Plugin {
 	}
 
 	/**
-	 * Returns the shared instance.
+	 * 共有されたインスタンスを返す。
 	 * 
-	 * @return Singleton instance of the Plugin
+	 * @return プラグインのシングルトンインスタンス
 	 */
 	public static NumberFormatterNodePlugin getDefault() {
 		return plugin;

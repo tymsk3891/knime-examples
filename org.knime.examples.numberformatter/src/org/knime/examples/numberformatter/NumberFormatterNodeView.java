@@ -3,24 +3,23 @@ package org.knime.examples.numberformatter;
 import org.knime.core.node.NodeView;
 
 /**
- * This is an example implementation of the node view of the
- * "NumberFormatterNode".
+ * これは「NumberFormatterNode」のノード view の実装サンプルです。
  * 
- * As this example node does not have a view, this is just an empty stub of the 
- * NodeView class which not providing a real view pane.
+ * このサンプルノードは view を持たないので、本物の view pane を提供しない NodeView クラスの
+ * 空のスタブです。
  *
  * @author KNIME GmbH, Konstanz, Germany
  */
 public class NumberFormatterNodeView extends NodeView<NumberFormatterNodeModel> {
 
 	/**
-	 * Creates a new view.
+	 * 新しい View を作成します。
 	 * 
 	 * @param nodeModel The model (class: {@link NumberFormatterNodeModel})
 	 */
 	protected NumberFormatterNodeView(final NumberFormatterNodeModel nodeModel) {
 		super(nodeModel);
-		// The components of the view should be instantiated here.
+		// ここで view のコンポーネントを初期化します。
 	}
 
 	/**
@@ -28,12 +27,12 @@ public class NumberFormatterNodeView extends NodeView<NumberFormatterNodeModel> 
 	 */
 	@Override
 	protected void modelChanged() {
-		// Retrieve the new model from your node model and update the view.
+		// node model から新しい model を取得し、view を更新する。
 		NumberFormatterNodeModel nodeModel = (NumberFormatterNodeModel) getNodeModel();
 		assert nodeModel != null;
 		/*
-		 * Be aware of a possibly not executed nodeModel! The data you retrieve from
-		 * your node model could be null, empty, or invalid in any kind.
+		 * 実行されていない可能性がある node model に注意してください！
+		 * node model から取得するデータは null、空、などあらゆる種類の無効なものである可能性があります。
 		 */
 	}
 
@@ -42,7 +41,7 @@ public class NumberFormatterNodeView extends NodeView<NumberFormatterNodeModel> 
 	 */
 	@Override
 	protected void onClose() {
-		// Things to do when closing the view.
+		// view を閉じた時の処理です。
 	}
 
 	/**
@@ -50,6 +49,6 @@ public class NumberFormatterNodeView extends NodeView<NumberFormatterNodeModel> 
 	 */
 	@Override
 	protected void onOpen() {
-		// Things to do when opening the view.
+		// view を開いた時の処理です。
 	}
 }
